@@ -10,13 +10,15 @@
     <dict>
         <key>NAME</key>
         <string>Tracker</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://www.cabrillo.edu/~dbrown/tracker/installers/Tracker-4.87-osx-installer.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>TrackerURLProcessor</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
