@@ -61,6 +61,7 @@ class TrackerURLProvider(Processor):
             raise ProcessorError(
                 "Couldn't find JRE download link in %s" % base_url)
         downloadURL = base_url + match.group(0).split('"')[1]
+        print downloadURL
         return downloadURL
 
     def main(self):
