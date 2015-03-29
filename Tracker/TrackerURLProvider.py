@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright 2013 Greg Neagle
+# Copyright 2015 Vaughn Miller
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,13 +40,12 @@ class TrackerURLProvider(Processor):
     }
     output_variables = {
         "url": {
-            "description": "URL to the latest Oracle Java 7 JRE release.",
+            "description": "URL to the latest Tracker release.",
         },
     }
 
     def get_tracker_zip_url(self, base_url):
-        """Finds a download URL for latest Oracle Java 7 release."""
-        #pylint: disable=no-self-use
+        """Finds a download URL for latest Tracker release."""
         # Read HTML from base URL.
         try:
             fref = urllib2.urlopen(base_url)
@@ -59,7 +58,7 @@ class TrackerURLProvider(Processor):
         match = DOWNLOAD_LINK.search(html)
         if not match:
             raise ProcessorError(
-                "Couldn't find JRE download link in %s" % base_url)
+                "Couldn't find Tracker download link in %s" % base_url)
         downloadURL = base_url + match.group(0).split('"')[1]
         return downloadURL
 
