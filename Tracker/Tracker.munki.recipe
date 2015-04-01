@@ -19,11 +19,34 @@
                 <string>testing</string>
             </array>
             <key>description</key>
-            <string>Tracker is a video anlysis tool.</string>
+            <string>Tracker is a free video analysis and modeling tool built on the Open Source Physics (OSP) Java framework.</string>
+            <key>category</key>
+            <string>Physics</string>
+            <key>developer</key>
+            <string>Open Source Physics</string>
             <key>display_name</key>
             <string>Tracker</string>
             <key>name</key>
             <string>%NAME%</string>
+            <key>requires</key>
+            <array>
+                <string>Java6ForOSX</string>
+            </array>
+            <key>postinstall_script</key>
+            <string>#!/bin/sh
+            "/Applications/Tracker-osx-installer.app/Contents/MacOS/osx-intel" --mode unattended
+            rc=$?
+            /bin/rm -r "/Applications/Tracker-osx-installer.app"
+            exit $rc
+            </string>
+            <key>uninstall_script</key>
+            <string>#!/bin/sh
+            "/usr/local/tracker/uninstall_Tracker.app/Contents/MacOS/osx-intel" --mode unattended
+            </string>
+            <key>uninstall_method</key>
+            <string>uninstall_script</string>
+            <key>uninstallable</key>
+            <true/>
             <key>unattended_install</key>
             <true/>
         </dict>
@@ -37,6 +60,17 @@
         <dict>
             <key>Processor</key>
             <string>Unarchiver</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileMover</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/Tracker-%CURRENT_VERSION%-osx-installer.app</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/Tracker-osx-installer.app</string>
+            </dict>
         </dict>
         <dict>
             <key>Arguments</key>
