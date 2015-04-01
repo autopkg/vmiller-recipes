@@ -17,13 +17,22 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>TrackerURLProvider</string>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.cabrillo.edu/~dbrown/tracker/</string>
+                <key>re_pattern</key>
+                <string>installers/Tracker-[0-9]+.+[0-9]+-osx-installer.zip</string>
+            </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+                <key>url</key>
+                <string>http://www.cabrillo.edu/~dbrown/tracker/%match%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
