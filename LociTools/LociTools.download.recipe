@@ -23,7 +23,7 @@
                 <key>url</key>
                 <string>http://downloads.openmicroscopy.org/bio-formats/</string>
                 <key>re_pattern</key>
-                <string>[0-9]\.[0-9]\.[0-9][^-]</string>
+                <string>[0-9]\.[0-9]\.[0-9](?=/)</string>
                 <key>result_output_var_name</key>
                 <string>CURRENT_VERSION</string>
             </dict>
@@ -34,7 +34,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://downloads.openmicroscopy.org/bio-formats/%CURRENT_VERSION%artifacts/loci_tools.jar</string>
+                <string>http://downloads.openmicroscopy.org/bio-formats/%CURRENT_VERSION%/artifacts/loci_tools.jar</string>
             </dict>
         </dict>
     </array>
