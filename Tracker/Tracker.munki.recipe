@@ -41,6 +41,11 @@
     <key>Process</key>
     <array>
         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
             <key>Processor</key>
             <string>Unarchiver</string>
         </dict>
