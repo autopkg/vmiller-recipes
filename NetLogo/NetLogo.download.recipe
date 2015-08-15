@@ -35,6 +35,8 @@
             <dict>
                 <key>url</key>
                 <string>https://ccl.northwestern.edu/netlogo/%CURRENT_VERSION%/NetLogo%20%CURRENT_VERSION%.dmg</string>
+                <key>filename</key>
+                <string>NetLogo %CURRENT_VERSION%.dmg</string>
             </dict>
         </dict>
     </array>
