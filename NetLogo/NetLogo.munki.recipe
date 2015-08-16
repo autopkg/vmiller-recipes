@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of NetLogo and imports it into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.vmiller.munki.netlogo</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/NetLogo</string>
+        <key>NAME</key>
+        <string>NetLogo</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>NetLogo is a multi-agent programmable modeling environment. It is used by tens of thousands of students, teachers and researchers worldwide. It also powers HubNet participatory simulations. It is authored by Uri Wilensky and developed at the CCL.</string>
+            <key>category</key>
+            <string>Biology</string>
+            <key>developer</key>
+            <string>Center for Connected Learning</string>
+            <key>display_name</key>
+            <string>NetLogo</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>ParentRecipe</key>
+    <string>com.github.vmiller.download.netlogo</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/NetLogo %CURRENT_VERSION%.dmg</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+                <key>additional_makepkginfo_options</key>
+                <array>
+                    <key>--item</key>
+                    <string>NetLogo %CURRENT_VERSION%/</string>
+                </array>
+                <key>pkginfo</key>
+                <dict>
+                    <key>version</key>
+                    <string>%CURRENT_VERSION%</string>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
