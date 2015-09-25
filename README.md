@@ -1,3 +1,3 @@
 # vmiller-recipes
 
-A few recipes not covered by others.
+AutoPkg recipes by Vaughn
