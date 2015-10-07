@@ -48,7 +48,7 @@
                 <key>additional_makepkginfo_options</key>
                 <array>
                     <key>--item</key>
-                    <string>NetLogo %CURRENT_VERSION%/</string>
+                    <string>NetLogo %CURRENT_VERSION%</string>
                 </array>
                 <key>pkginfo</key>
                 <dict>
