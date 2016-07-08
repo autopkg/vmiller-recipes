@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Tracker ZIP file.</string>
+    <string>Downloads latest Tracker ZIP file. NOTE: https download not available for this software.  Take care to inspect/test the downloaded file</string>
     <key>Identifier</key>
     <string>com.github.vmiller.download.tracker</string>
     <key>Input</key>
