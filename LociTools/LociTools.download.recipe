@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Loci Tools for ImageJ jar file.</string>
+    <string>Downloads latest Loci Tools for ImageJ jar file. NOTE: Code signature verification not available for this download</string>
     <key>Identifier</key>
     <string>com.github.vmiller.download.locitools</string>
     <key>Input</key>
