@@ -12,7 +12,7 @@
         <string>loci_tools</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.6.0</string>
     <key>Process</key>
     <array>
         <dict>
@@ -21,7 +21,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://downloads.openmicroscopy.org/bio-formats/</string>
+                <string>https://downloads.openmicroscopy.org/bio-formats/</string>
                 <key>re_pattern</key>
                 <string>[0-9]\.[0-9]\.[0-9](?=/)</string>
                 <key>result_output_var_name</key>
@@ -34,7 +34,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>http://downloads.openmicroscopy.org/bio-formats/%CURRENT_VERSION%/artifacts/loci_tools.jar</string>
+                <string>https://downloads.openmicroscopy.org/bio-formats/%CURRENT_VERSION%/artifacts/loci_tools.jar</string>
             </dict>
         </dict>
     </array>
