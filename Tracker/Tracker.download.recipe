@@ -26,7 +26,7 @@
 				<string>http://physlets.org/tracker/</string>
 			</dict>
 			<key>Processor</key>
-			<string>CURLTextSearcher</string>
+			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -37,7 +37,7 @@
 				<string>http://physlets.org/tracker/installers/download.php?file=Tracker-%CURRENT_VERSION%-osx-installer.zip</string>
 			</dict>
 			<key>Processor</key>
-			<string>CURLDownloader</string>
+			<string>URLDownloader</string>
 		</dict>
 	</array>
 </dict>
