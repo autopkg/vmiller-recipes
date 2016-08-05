@@ -21,7 +21,7 @@
 				<key>re_pattern</key>
 				<string>file=Tracker-([0-9\.]+)-osx-installer.zip</string>
 				<key>result_output_var_name</key>
-				<string>CURRENT_VERSION</string>
+				<string>version</string>
 				<key>url</key>
 				<string>http://physlets.org/tracker/</string>
 			</dict>
@@ -32,9 +32,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%-%version%.zip</string>
 				<key>url</key>
-				<string>http://physlets.org/tracker/installers/download.php?file=Tracker-%CURRENT_VERSION%-osx-installer.zip</string>
+				<string>http://physlets.org/tracker/installers/download.php?file=Tracker-%version%-osx-installer.zip</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
