@@ -18,10 +18,10 @@
 			<array>
 				<string>testing</string>
 			</array>
-			<key>description</key>
-			<string>Fiji is an image processing package. It can be described as a distribution of ImageJ (and ImageJ2) together with Java, Java3D and a lot of plugins organized into a coherent menu structure. Fiji compares to ImageJ as Ubuntu compares to Linux.</string>
 			<key>category</key>
 			<string>Biology</string>
+			<key>description</key>
+			<string>Fiji is an image processing package. It can be described as a distribution of ImageJ (and ImageJ2) together with Java, Java3D and a lot of plugins organized into a coherent menu structure. Fiji compares to ImageJ as Ubuntu compares to Linux.</string>
 			<key>developer</key>
 			<string>Fiji</string>
 			<key>display_name</key>
