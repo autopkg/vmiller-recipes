@@ -12,12 +12,16 @@
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>ImageJ</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Math &amp; Science</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>ImageJ is a public domain Java image processing program inspired by NIH Image for the Macintosh.</string>
 			<key>developer</key>
