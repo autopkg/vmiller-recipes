@@ -28,31 +28,63 @@
 			<string>NetLogo</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/sh
+
+/bin/echo "Removing old copies of Racket v6.x from the /Applications folder..."
+/bin/rm -rf /Applications/NetLogo */
+
+exit $?</string>
 			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
 			<true/>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.9</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vmiller.download.netlogo</string>
+	<string>com.github.vmiller.pkg.netlogo</string>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
 			<key>Arguments</key>
 			<dict>
-				<key>additional_makepkginfo_options</key>
-				<array>
-					<string>--item</string>
-					<string>NetLogo %CURRENT_VERSION%</string>
-				</array>
-				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/NetLogo %CURRENT_VERSION%.dmg</string>
-				<key>pkginfo</key>
+				<key>additional_pkginfo</key>
 				<dict>
 					<key>version</key>
 					<string>%CURRENT_VERSION%</string>
 				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot/</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/Applications/NetLogo %CURRENT_VERSION%/Behaviorsearch %CURRENT_VERSION%.app</string>
+					<string>/Applications/NetLogo %CURRENT_VERSION%/HubNet Client %CURRENT_VERSION%.app</string>
+					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo %CURRENT_VERSION%.app</string>
+					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo Logging %CURRENT_VERSION%.app</string>
+					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo 3D %CURRENT_VERSION%.app</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pkg_path%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
