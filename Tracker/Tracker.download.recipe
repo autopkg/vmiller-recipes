@@ -32,9 +32,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%.zip</string>
+				<string>%NAME%-%version%.dmg</string>
 				<key>url</key>
-				<string>http://physlets.org/tracker/installers/download.php?file=Tracker-%version%-osx-installer.zip</string>
+				<string>http://physlets.org/tracker/installers/download.php?file=Tracker-%version%-osx-installer.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
