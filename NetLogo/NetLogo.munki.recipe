@@ -62,7 +62,6 @@
 					<string>/Applications/NetLogo %CURRENT_VERSION%/Behaviorsearch %CURRENT_VERSION%.app</string>
 					<string>/Applications/NetLogo %CURRENT_VERSION%/HubNet Client %CURRENT_VERSION%.app</string>
 					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo %CURRENT_VERSION%.app</string>
-					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo Logging %CURRENT_VERSION%.app</string>
 					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo 3D %CURRENT_VERSION%.app</string>
 				</array>
 			</dict>
