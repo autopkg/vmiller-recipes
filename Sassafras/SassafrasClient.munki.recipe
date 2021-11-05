@@ -34,7 +34,7 @@
             <key>display_name</key>
             <string>Keyserver Client</string>
             <key>name</key>
-            <string>%MUNKI_NAME</string>
+            <string>%MUNKI_NAME%</string>
             <key>unattended_install</key>
             <true/>
         </dict>
