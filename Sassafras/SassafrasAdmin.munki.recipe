@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest admin installer for Sassafras AllSight/LabSight/KeySight.
+</string>
+    <key>Identifier</key>
+    <string>com.github.vmiller.munki.sassafrasadmin</string>
+    <key>MinimumVersion</key>
+    <string>1.4</string>
+    <key>Input</key>
+    <dict>
+        <key>INSTALLER_TYPE</key>
+        <string>admin</string>
+        <key>NAME</key>
+        <string>AllSight</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>configuration/K2Admin</string>
+        <key>MUNKI_NAME</key>
+        <string>K2Admin</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>category</key>
+            <string>configuration</string>
+            <key>description</key>
+            <string>Keyserver admin software</string>
+            <key>developer</key>
+            <string>Sassafras</string>
+            <key>display_name</key>
+            <string>Keyserver Admin CLient</string>
+            <key>name</key>
+            <string>%MUNKI_NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>ParentRecipe</key>
+    <string>com.github.jazzace.download.sassafrasallsight</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
