@@ -15,6 +15,9 @@
         <string>client</string>
         <key>NAME</key>
         <string>AllSight</string>
+        <key>pkg_ids_set_optional_true</key>
+        <array>
+        </array>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>configuration/K2client</string>
         <key>MUNKI_NAME</key>
@@ -53,6 +56,10 @@
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.keeleysam.recipes.GoogleTalkPlugin/MunkiPkginfoReceiptsEditor</string>
         </dict>
     </array>
 </dict>
