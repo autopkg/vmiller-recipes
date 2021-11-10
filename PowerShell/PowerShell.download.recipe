@@ -16,6 +16,8 @@ ARCH can be one of 'arm64' or 'x64'</string>
 		<string>PowerShell/PowerShell</string>
 		<key>NAME</key>
 		<string>PowerShell</string>
+		<key>MAJOR_VERSION</key>
+		<string>7.2</string>
 		<key>ARCH</key>
 		<string>x64</string>
 	</dict>
@@ -29,7 +31,7 @@ ARCH can be one of 'arm64' or 'x64'</string>
 				<key>github_repo</key>
 				<string>%GITHUB_REPO%</string>
 				<key>asset_regex</key>
-				<string>powershell-[0-9\.]+-osx-%ARCH%.pkg</string>
+				<string>powershell-%MAJOR_VERSION%[0-9\.]+-osx-%ARCH%.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>GitHubReleasesInfoProvider</string>
