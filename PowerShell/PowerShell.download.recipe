@@ -5,7 +5,9 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v1.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of PowerShell.  Set MAJOR_VERSION to the major version you wish to search for, i.e. 7.0, 7.1, 7.2</string>
+	<string>Downloads the latest version of PowerShell.  
+Set MAJOR_VERSION to the major version you wish to search for, i.e. 7.0, 7.1, 7.2. 
+ARCH can be one of 'arm64' or 'x64'</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.download.PowerShell</string>
 	<key>Input</key>
@@ -16,6 +18,8 @@
 		<string>PowerShell</string>
 		<key>MAJOR_VERSION</key>
 		<string>7.2</string>
+		<key>ARCH</key>
+		<string>x64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -27,7 +31,7 @@
 				<key>github_repo</key>
 				<string>%GITHUB_REPO%</string>
 				<key>asset_regex</key>
-				<string>(powershell-%MAJOR_VERSION%[a-z0-9-.]*.pkg)</string>
+				<string>powershell-%MAJOR_VERSION%[0-9\.]+-osx-%ARCH%.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>GitHubReleasesInfoProvider</string>
@@ -36,7 +40,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%.pkg</string>
+				<string>%NAME%-%ARCH%-%version%.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
