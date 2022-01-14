@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads latest Loci Tools for ImageJ jar file. NOTE: Code signature verification not available for this download</string>
 	<key>Identifier</key>
-	<string>com.github.vmiller.download.locitools</string>
+	<string>com.github.vmiller.download.bioformats_package</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
