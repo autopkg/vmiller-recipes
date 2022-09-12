@@ -59,7 +59,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>predicate</key>
-				<string>pkginfo_repo_path == ''</string>
+				<string>munki_repo_changed == False</string>
 			</dict>
 			<key>Processor</key>
 			<string>StopProcessingIf</string>
