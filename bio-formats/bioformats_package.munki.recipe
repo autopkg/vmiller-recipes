@@ -61,7 +61,7 @@
 					<string>--item</string>
 					<string>%NAME%.jar</string>
 					<string>--destinationpath</string>
-					<string>/Applications/ImageJ/plugins/bioformats_package/</string>
+					<string>/Applications/ImageJ.app/plugins/bioformats_package/</string>
 				</array>
 				<key>pkg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
