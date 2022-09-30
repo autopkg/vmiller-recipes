@@ -54,6 +54,18 @@
 			<string>DmgCreator</string>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%CURRENT_VERSION%</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>additional_makepkginfo_options</key>
@@ -65,11 +77,6 @@
 				</array>
 				<key>pkg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<key>pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%CURRENT_VERSION%</string>
-				</dict>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
