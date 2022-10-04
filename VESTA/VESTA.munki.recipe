@@ -108,11 +108,6 @@
 				</array>
 				<key>pkg_path</key>
 				<string>%RECIPE_CACHE_DIR%/downloads/VESTA.dmg</string>
-				<!--<key>pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%CURRENT_VERSION%</string>
-				</dict> -->
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
