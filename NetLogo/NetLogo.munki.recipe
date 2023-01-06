@@ -3,11 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of NetLogo and imports it into Munki.</string>
+	<string>Downloads the latest version of NetLogo and imports it into Munki.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.netlogo</string>
 	<key>Input</key>
 	<dict>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/NetLogo</string>
 		<key>NAME</key>
@@ -35,7 +39,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.9</string>
+	<string>2.7</string>
 	<key>ParentRecipe</key>
 	<string>com.github.vmiller.pkg.netlogo</string>
 	<key>Process</key>
@@ -56,7 +60,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/pkgroot/</string>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/</string>
 				<key>installs_item_paths</key>
 				<array>
 					<string>/Applications/NetLogo %CURRENT_VERSION%/Behaviorsearch %CURRENT_VERSION%.app</string>
@@ -64,6 +68,8 @@
 					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo %CURRENT_VERSION%.app</string>
 					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo 3D %CURRENT_VERSION%.app</string>
 				</array>
+				<key>derive_minimum_os_version</key>
+				<string>%DERIVE_MIN_OS%</string>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiInstallsItemsCreator</string>
