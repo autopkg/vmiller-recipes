@@ -1,3 +1,7 @@
 #!/bin/sh
 
-/bin/launchctl load /Library/LaunchAgents/com.gitlab.gitlab-runner.plist
+loggedInUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ && ! /loginwindow/ { print $3 }' )
+userID=$( id -u $loggedInUser )
+/bin/launchctl bootstrap gui/$userID /Library/LaunchAgents/com.gitlab.gitlab-runner.plist
+
+exit 0
