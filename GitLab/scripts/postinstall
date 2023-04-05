@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/bin/launchctl load /Library/LaunchAgents/com.gitlab.gitlab-runner.plist
