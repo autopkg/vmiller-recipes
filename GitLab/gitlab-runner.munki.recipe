@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Imports the latest macOS gitlab-runner binary into munki</string>
+	<string>Imports the latest macOS gitlab-runner binary into munki.
+
+	ARCH should be set to arm64 for apple silicon to amd64 for intel
+
+	MUNKI_ARCH should be set to arm64 or x86_64 </string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.gitlab-runner</string>
 	<key>Input</key>

@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads and packages the latest macOS gitlab-runner binary</string>
+	<string>Downloads and packages the latest macOS gitlab-runner binary.
+	ARCH should be set to arm64 for apple silicon to amd64 for intel</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.pkg.gitlab-runner</string>
 	<key>Input</key>
