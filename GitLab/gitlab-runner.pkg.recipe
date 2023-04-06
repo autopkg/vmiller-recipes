@@ -67,7 +67,7 @@
         			<key>version</key>
         			<string>%version%</string>
         			<key>id</key>
-        			<string>edu.lafayette.gitlab-runner</string>
+        			<string>com.gitlab.pkg.gitlab-runner</string>
         			<key>options</key>
         			<string>purge_ds_store</string>
         			<key>scripts</key>
