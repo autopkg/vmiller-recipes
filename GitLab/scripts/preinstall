@@ -5,7 +5,7 @@ LaunchAgent=/Library/LaunchAgents/com.gitlab.gitlab-runner.plist
 if [ -f "$LaunchAgent" ]; then
 	loggedInUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ && ! /loginwindow/ { print $3 }' )
 	userID=$( id -u $loggedInUser )
-	/bin/launchctl bootout gui/$userID /Library/LaunchAgents/com.gitlab.gitlab-runner.plist
+	/bin/launchctl bootout gui/$userID "$LaunchAgent"
 fi
 
 exit 0
