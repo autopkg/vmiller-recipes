@@ -63,9 +63,9 @@
         		<key>pkg_request</key>
         		<dict>
         			<key>pkgname</key>
-        			<string>%NAME%-%ARCH%-%tag_name%</string>
+        			<string>%NAME%-%ARCH%-%version%</string>
         			<key>version</key>
-        			<string>%tag_name%</string>
+        			<string>%version%</string>
         			<key>id</key>
         			<string>edu.lafayette.gitlab-runner</string>
         			<key>options</key>

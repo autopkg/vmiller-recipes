@@ -36,6 +36,19 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
+				<string>https://gitlab.com/api/v4/projects/250833/releases</string>
+				<key>re_pattern</key>
+				<string>\d+.\d+.\d+</string>
+				<key>result_output_var_name</key>
+				<string>version</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
 				<string>https://s3.amazonaws.com/gitlab-runner-downloads/%tag_name%/binaries/gitlab-runner-darwin-%ARCH%</string>
 				<key>filename</key>
 				<string>gitlab-runner</string>
