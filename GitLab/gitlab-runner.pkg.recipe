@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Downloads and packages the latest macOS gitlab-runner binary</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.pkg.gitlab-runner</string>
 	<key>Input</key>
