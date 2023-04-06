@@ -10,8 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>gitlab-runner</string>
-		<key>RELEASE_CHANNEL</key>
-		<string>release</string>
 		<key>ARCH</key>
 		<string>arm64</string>
 	</dict>
