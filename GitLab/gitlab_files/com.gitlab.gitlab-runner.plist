@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd" >
+<plist version='1.0'>
+  <dict>
+    <key>Label</key>
+    <string>gitlab-runner</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/gitlab-runner</string>
+      <string>run</string>
+      <string>--working-directory</string>
+      <string>/Users/autopkg</string>
+      <string>--config</string>
+      <string>~/.gitlab-runner/config.toml</string>
+      <string>--service</string>
+      <string>gitlab-runner</string>
+      <string>--syslog</string>
+    </array>
+    <key>SessionCreate</key>
+    <false/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>Disabled</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>~/.gitlab-runner/gitlab-runner.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>~/.gitlab-runner/gitlab-runner.err.log</string>
+  </dict>
+</plist>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports the latest macOS gitlab-runner binary into munki.
+
+	ARCH should be set to arm64 for apple silicon to amd64 for intel
+
+	MUNKI_ARCH should be set to arm64 or x86_64 </string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.gitlab-runner</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_ARCH</key>
+		<string>arm64</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>gitlab-runner</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>Installs the macOS GitLab Runner</string>
+			<key>developer</key>
+			<string>GitLab</string>
+			<key>display_name</key>
+			<string>GitLab Runner</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>supported_architectures</key>
+			<array>
+				<string>%MUNKI_ARCH%</string>
+			</array>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.vmiller.pkg.gitlab-runner</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pkg_path%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
