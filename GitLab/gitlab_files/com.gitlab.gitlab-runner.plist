@@ -10,9 +10,9 @@
       <string>/usr/local/bin/gitlab-runner</string>
       <string>run</string>
       <string>--working-directory</string>
-      <string>/Users/autopkg</string>
+      <string>/Users/Shared/gitlab</string>
       <string>--config</string>
-      <string>~/.gitlab-runner/config.toml</string>
+      <string>/Users/Shared/gitlab/.gitlab-runner/config.toml</string>
       <string>--service</string>
       <string>gitlab-runner</string>
       <string>--syslog</string>
@@ -26,8 +26,8 @@
     <key>Disabled</key>
     <false/>
     <key>StandardOutPath</key>
-    <string>~/.gitlab-runner/gitlab-runner.out.log</string>
+    <string>/Users/Shared/gitlab/.gitlab-runner/gitlab-runner.out.log</string>
     <key>StandardErrorPath</key>
-    <string>~/.gitlab-runner/gitlab-runner.err.log</string>
+    <string>/Users/Shared/gitlab/.gitlab-runner/gitlab-runner.err.log</string>
   </dict>
 </plist>
