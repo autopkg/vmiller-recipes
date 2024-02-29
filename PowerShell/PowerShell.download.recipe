@@ -6,7 +6,7 @@
 	<string>Created with Recipe Robot v1.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of PowerShell.  
-Set MAJOR_VERSION to the major version you wish to search for, i.e. 7.0, 7.1, 7.2. 
+Set MAJOR_VERSION to the major version you wish to search for, i.e. 7.2, 7.3, 7.4 
 ARCH can be one of 'arm64' or 'x64'</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.download.PowerShell</string>
@@ -17,7 +17,7 @@ ARCH can be one of 'arm64' or 'x64'</string>
 		<key>NAME</key>
 		<string>PowerShell</string>
 		<key>MAJOR_VERSION</key>
-		<string>7.2</string>
+		<string>7.4</string>
 		<key>ARCH</key>
 		<string>x64</string>
 	</dict>
