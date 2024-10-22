@@ -23,7 +23,7 @@
  				<key>result_output_var_name</key>
  				<string>CURRENT_VERSION</string>
  				<key>url</key>
- 				<string>https://downloads.openmicroscopy.org/bio-formats/</string>
+ 				<string>https://www.openmicroscopy.org/bio-formats/downloads/</string>
  			</dict>
  			<key>Processor</key>
  			<string>URLTextSearcher</string>
