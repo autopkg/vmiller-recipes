@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Vectorworks Install Manager for the major version specified via Input Variable, and then uses the Install Manager to download the latest "Update" installation media.  Note that this recipe only works for Vectorworks 2025 and later</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.download.vectorworksfullinstaller</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>VectorworksFullInstaller</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.4</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jazzace.download.vectorworksinstallmanager</string>	
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>VectorworksUpdateDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>install_manager_path</key>
+				<string>%RECIPE_CACHE_DIR%/Unarchived/Vectorworks %MAJOR_VERSION% Install Manager.app</string>
+				<key>major_version</key>
+				<string>%MAJOR_VERSION%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
