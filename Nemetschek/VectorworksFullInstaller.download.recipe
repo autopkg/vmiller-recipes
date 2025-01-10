@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Downloads the latest version of Vectorworks Install Manager for the major version specified via Input Variable, and then uses the Install Manager to download the latest "Update" installation media.  Note that this recipe only works for Vectorworks 2025 and later</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.download.vectorworksfullinstaller</string>
 	<key>Input</key>
