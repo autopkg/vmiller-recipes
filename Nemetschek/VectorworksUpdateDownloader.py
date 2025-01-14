@@ -13,13 +13,13 @@ __all__ = ["VectorworksUpdateDownloader"]
 
 class VectorworksUpdateDownloader(Processor):
     """This processor uses the Vectorworks Installation Manager app 
-    to download the Uodate file used for offline installs"""
+    to download the Update file used for offline installs"""
 
     description = __doc__
     input_variables = {
         "major_version": {
             "required": True,
-            "description": "Major version of Vectoworks i.e. 2025.",
+            "description": "Major version of Vectoworks (e.g., 2025).",
         },
         "install_manager_path": {
             "required": True,
@@ -27,7 +27,8 @@ class VectorworksUpdateDownloader(Processor):
         }
     }
     output_variables = {
-        "downloaded_update_path": {"description": "Outputs path to the update file."}
+        "downloaded_update_path": {"description": "Path to the update file."},
+        "update_version": {"description": "Name of the update (e.g., Update2)."}
     }
 
     def main(self):
@@ -72,7 +73,8 @@ class VectorworksUpdateDownloader(Processor):
                         text=True)
             else:
                 self.output("Update already exists as : %s" % download_update_path)
-            self.env["downloaded_update_path"] = download_update_path 
+            self.env["downloaded_update_path"] = download_update_path
+            self.env["update_version"] = update_target_version 
 
         except Exception as err:
             # handle unexpected errors here
