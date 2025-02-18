@@ -23,7 +23,7 @@
 				<key>result_output_var_name</key>
 				<string>version</string>
 				<key>url</key>
-				<string>https://physlets.org/tracker/</string>
+				<string>https://opensourcephysics.github.io/tracker-website/</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
