@@ -56,7 +56,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.4</string>
-<key>ParentRecipe</key>
+	<key>ParentRecipe</key>
 	<string>com.github.jazzace.pkg.vectorworksinstallmanager</string>	
 	<key>Process</key>
 	<array>
