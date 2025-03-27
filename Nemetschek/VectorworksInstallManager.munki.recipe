@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Recipe description</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.VectorworksInstallManager</string>
+	<key>Input</key>
+	<dict>
+		<key>GROUP_ID</key>
+		<string>80</string>		
+		<key>NAME</key>
+		<string>Vectorworks</string>
+		<key>USER_ID</key>
+		<string>0</string>
+		<key>VW_SERIAL_NO</key>
+		<string>GFXXXX-123456-ABCDEF-G7HI89</string>
+		<key>repo_subdirectory</key>
+		<string>apps/%NAME%</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>category</key>
+			<string>Design</string>
+			<key>developer</key>
+			<string>Nemetschek</string>
+			<key>description</key>
+			<string>One flexible 3D design software for your entire process.
+
+Sketch, model, present. The ultimate 3D software that handles projects from start to finish.</string>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>minimum_os_version</key>
+			<string>12.0</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!bin/bash -x
+				"/private/var/tmp/vw/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Resources/cli.sh" install --installdir "/Applications/Vectorworks %MAJOR_VERSION%" --serial %VW_SERIAL_NO% --uid %USER_ID% --gid %GROUP_ID%</string>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/bash
+			/bin/rm -rf "/Applications/Vectorworks %MAJOR_VERSION%"</string>
+			<key>unattended_install</key>
+			<false/>
+			<key>unattended_uninstall</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.4</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jazzace.download.vectorworksinstallmanager</string>	
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/Unarchived/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Info.plist</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>	
+		<dict>
+    		<key>Processor</key>
+    		<string>com.github.mlbz521.SharedProcessors/VersionMajorMinor</string>
+    		<key>Arguments</key>
+    		<dict>
+        		<key>version</key>
+        		<string>%version%</string>
+    		</dict>
+		</dict>			
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/Unarchived</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+			</dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>installs</key>
+					<array>
+						<dict>
+							<key>CFBundleIdentifier</key>
+							<string>net.nemetschek.vectorworks</string>
+							<key>CFBundleName</key>
+							<string>Vectorworks</string>
+							<key>CFBundleVersion</key>
+							<string>%version_major_minor%</string>
+							<key>path</key>
+							<string>/Applications/Vectorworks %MAJOR_VERSION%/Vectorworks %MAJOR_VERSION%.app</string>
+							<key>type</key>
+							<string>application</string>
+							<key>version_comparison_key</key>
+							<string>CFBundleVersion</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%dmg_path%</string>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationpath</string>
+					<string>/private/var/tmp/vw</string>
+					<string>--pkgvers</string>
+					<string>%version_major_minor%</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
