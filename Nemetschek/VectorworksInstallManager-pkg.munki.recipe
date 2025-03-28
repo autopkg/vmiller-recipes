@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>This recipe downloads the latest Vectorworks Install Manager app (2025 or later) and creates a package that 
+runs the Vectorworks Install Manager via shell script.  The resulting package is imported into Munki.
+
+This recipe uses Vectorworks Install Manager’s capability to download the installer (.vwim) at runtime.
+
+Input variables are used to specify which major version of Vectorworks you are installing (e.g., 2025) and 
+to customize the installation package with the recipe user’s license information.
+You must also specify the numerical values for the USER_ID and GROUP_ID to be used for the install.
+The defaults are 0 and 80 respectively (root and admin).
+
+The pkg is named with the NAME and the version number of Vectorworks Install Manager; if you want to include the year/major version 
+in the pkg name, change the NAME variable accordingly.
+ 
+Note: This recipe only works with Vectorworks 2025 (and later). 
+</string>	
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.VectorworksInstallManager-pkg</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Vectorworks</string>
+		<key>repo_subdirectory</key>
+		<string>apps/%NAME%</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>category</key>
+			<string>Design</string>
+			<key>developer</key>
+			<string>Nemetschek</string>
+			<key>description</key>
+			<string>One flexible 3D design software for your entire process.
+
+Sketch, model, present. The ultimate 3D software that handles projects from start to finish.</string>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>minimum_os_version</key>
+			<string>12.0</string>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/bash
+			/bin/rm -rf "/Applications/Vectorworks %MAJOR_VERSION%"
+			/usr/sbin/pkgutil --forget %BUNDLE_ID%</string>
+			<key>unattended_install</key>
+			<false/>
+			<key>unattended_uninstall</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.4</string>
+	<key>ParentRecipe</key>
+	<string>com.github.jazzace.pkg.vectorworksinstallmanager</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
