@@ -37,7 +37,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>postinstall_script</key>
-			<string>#!bin/bash -x
+			<string>#!/bin/bash -x
 				"/private/var/tmp/vw/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Resources/cli.sh" install --installdir "/Applications/Vectorworks %MAJOR_VERSION%" --serial %VW_SERIAL_NO% --uid %USER_ID% --gid %GROUP_ID%</string>
 			<key>uninstall_method</key>
 			<string>uninstall_script</string>
