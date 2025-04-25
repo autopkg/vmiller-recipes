@@ -57,7 +57,6 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 	<key>Process</key>
 	<array>
 		<dict>
-<<<<<<< HEAD
 			<key>Processor</key>
 			<string>VectorworksUpdateVersioner</string>
 			<key>Arguments</key>
@@ -68,7 +67,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 				<string>%MAJOR_VERSION%</string>
 			</dict>
 		</dict>
-=======
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
@@ -76,17 +75,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			</dict>
 			<key>Processor</key>
 			<string>Versioner</string>
-		</dict>	
-		<dict>
-    		<key>Processor</key>
-    		<string>com.github.mlbz521.SharedProcessors/VersionMajorMinor</string>
-    		<key>Arguments</key>
-    		<dict>
-        		<key>version</key>
-        		<string>%version%</string>
-    		</dict>
-		</dict>			
->>>>>>> master
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -99,16 +88,6 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			<string>DmgCreator</string>
 		</dict>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-<<<<<<< HEAD
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/Unarchived/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Info.plist</string>
-			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-		</dict>			
-		<dict>
     		<key>Processor</key>
     		<string>com.github.homebysix.VersionSplitter/VersionSplitter</string>
     		<key>Arguments</key>
@@ -116,12 +95,10 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
         		<key>split_on</key>
         		<string>.</string>
     		</dict>
-</dict>		
+		</dict>		
 		<dict>
 			<key>Arguments</key>
 			<dict>
-=======
->>>>>>> master
 				<key>additional_pkginfo</key>
 				<dict>
 					<key>installs</key>
@@ -132,11 +109,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 							<key>CFBundleName</key>
 							<string>Vectorworks</string>
 							<key>CFBundleVersion</key>
-<<<<<<< HEAD
 							<string>%version%.%update_version%</string>
-=======
-							<string>%version_major_minor%</string>
->>>>>>> master
 							<key>path</key>
 							<string>/Applications/Vectorworks %MAJOR_VERSION%/Vectorworks %MAJOR_VERSION%.app</string>
 							<key>type</key>
@@ -149,11 +122,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			</dict>
 			<key>Processor</key>
 			<string>MunkiPkginfoMerger</string>
-<<<<<<< HEAD
-		</dict> -->
-=======
 		</dict>
->>>>>>> master
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -164,11 +133,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 					<string>--destinationpath</string>
 					<string>/private/var/tmp/vw</string>
 					<string>--pkgvers</string>
-<<<<<<< HEAD
 					<string>%version%.%update_version%</string>
-=======
-					<string>%version_major_minor%</string>
->>>>>>> master
 				</array>
 			</dict>
 			<key>Processor</key>
