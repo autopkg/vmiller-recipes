@@ -15,4 +15,4 @@ This recipe uses `VectorworksInstallManager.pkg` recipe from `jazzace-recipes` a
 
 ## VectorworksInstallManager.munki.recipe
 
-This recipe uses `VectorworksInstallManager.download` recipe from `jazzace-recipes` as a parent. The Install Manager app is wrapped in a dmg and imported into Munki with a postinstall script to do the installation.  This recipe relies on the `VersionMajorMinor` custom processor from `mlbz521-recipes` 
+This recipe uses `VectorworksInstallManager.download` recipe from `jazzace-recipes` as a parent. The Install Manager app is wrapped in a dmg and imported into Munki with a postinstall script to do the installation.  This recipe relies on the `VersionSplitter` custom processor from `homebysix-recipes` 
