@@ -19,7 +19,7 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>VectorworksUpdateDownloader</string>
+			<string>VectorworksUpdateVersioner</string>
 			<key>Arguments</key>
 			<dict>
 				<key>install_manager_path</key>
@@ -28,6 +28,17 @@
 				<string>%MAJOR_VERSION%</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>VectorworksUpdateDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>install_manager_path</key>
+				<string>%RECIPE_CACHE_DIR%/Unarchived/Vectorworks %MAJOR_VERSION% Install Manager.app</string>
+				<key>major_version</key>
+				<string>%MAJOR_VERSION%</string>
+			</dict>
+		</dict>		
 	</array>
 </dict>
 </plist>

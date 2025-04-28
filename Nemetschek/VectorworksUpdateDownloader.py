@@ -24,6 +24,10 @@ class VectorworksUpdateDownloader(Processor):
         "install_manager_path": {
             "required": True,
             "description": "Path to the install manager app.",
+        },
+        "update_version": {
+            "required": True,
+            "description": "Update version to download"
         }
     }
     output_variables = {
@@ -34,25 +38,8 @@ class VectorworksUpdateDownloader(Processor):
     def main(self):
         try:
             downloader_cli = self.env["install_manager_path"] + "/Contents/Resources/cli.sh"
-            list_updates_command = [downloader_cli,
-                            'download',
-                            '--ls']
-            self.output("Running command : %s" % list_updates_command)
-            process = subprocess.run(
-                   list_updates_command,
-                   stdout=subprocess.PIPE,
-                   stderr=subprocess.PIPE,
-                   text=True)
-            List = process.stdout.strip()
-
-            high_version = "0"
-            for line in List.split("\n"):
-                if "Update" in line:
-                    version = line[10:]
-                    if version > high_version:
-                        high_version = version
-
-            update_target_version = "Update" + high_version
+    
+            update_target_version = "Update" + self.env["update_version"]
             self.output("Found update target %s" % update_target_version)
 
             update_dir = self.env["RECIPE_CACHE_DIR"] + "/Update/" + self.env["major_version"]
