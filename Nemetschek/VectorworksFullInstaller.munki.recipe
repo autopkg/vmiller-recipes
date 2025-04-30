@@ -157,7 +157,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 					</array>
 					<key>postinstall_script</key>
 					<string>#!/bin/bash -x
-						"/private/var/tmp/vw/vectorworks_install/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Resources/cli.sh" install --installdir "/Applications/Vectorworks %MAJOR_VERSION%" --ldf /private/var/tmp/vw/vectorworks_install/%LDF_FILE_NAME% --serial %VW_SERIAL_NO% --uid %USER_ID% --gid %GROUP_ID% -i "/private/var/tmp/vw/vectorworks_install/%update_name%.wvim"</string>
+						"/private/var/tmp/vw/vectorworks_install/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Resources/cli.sh" install --installdir "/Applications/Vectorworks %MAJOR_VERSION%" --ldf /private/var/tmp/vw/vectorworks_install/%LDF_FILE_NAME% --serial %VW_SERIAL_NO% --uid %USER_ID% --gid %GROUP_ID% -i "/private/var/tmp/vw/vectorworks_install/%update_name%.vwim"</string>
 				</dict>
 			</dict>
 			<key>Processor</key>
