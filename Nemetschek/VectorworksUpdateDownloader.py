@@ -24,45 +24,32 @@ class VectorworksUpdateDownloader(Processor):
         "install_manager_path": {
             "required": True,
             "description": "Path to the install manager app.",
+        },
+        "update_version": {
+            "required": True,
+            "description": "Update version to download"
         }
     }
     output_variables = {
         "downloaded_update_path": {"description": "Path to the update file."},
-        "update_version": {"description": "Name of the update (e.g., Update2)."}
+        "update_name": {"description": "Name of the update (e.g., Update2)."}
     }
 
     def main(self):
         try:
             downloader_cli = self.env["install_manager_path"] + "/Contents/Resources/cli.sh"
-            list_updates_command = [downloader_cli,
-                            'download',
-                            '--ls']
-            self.output("Running command : %s" % list_updates_command)
-            process = subprocess.run(
-                   list_updates_command,
-                   stdout=subprocess.PIPE,
-                   stderr=subprocess.PIPE,
-                   text=True)
-            List = process.stdout.strip()
-
-            high_version = "0"
-            for line in List.split("\n"):
-                if "Update" in line:
-                    version = line[10:]
-                    if version > high_version:
-                        high_version = version
-
-            update_target_version = "Update" + high_version
-            self.output("Found update target %s" % update_target_version)
+    
+            update_target_name = "Update" + self.env["update_version"]
+            self.output("Found update target %s" % update_target_name)
 
             update_dir = self.env["RECIPE_CACHE_DIR"] + "/Update/" + self.env["major_version"]
             update_download_command = [downloader_cli,
                         'download',
                         '--target',
-                        update_target_version,
+                        update_target_name,
                         '--dest',
                         update_dir]
-            download_update_path = update_dir + '/' + update_target_version + '.vwim'
+            download_update_path = update_dir + '/' + update_target_name + '.vwim'
 
             if not os.path.isfile(download_update_path):
                 self.output("Running command  %s" % update_download_command)
@@ -74,7 +61,7 @@ class VectorworksUpdateDownloader(Processor):
             else:
                 self.output("Update already exists as : %s" % download_update_path)
             self.env["downloaded_update_path"] = download_update_path
-            self.env["update_version"] = update_target_version 
+            self.env["update_name"] = update_target_name 
 
         except Exception as err:
             # handle unexpected errors here

@@ -3,13 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the Vectoworks Install Manager app and imports it into Munki with a postinstall script to do the installation.</string>
+	<string>Downloads the Vectoworks Install Manager app and the latest Update file and creates a DMG to import into munki.  Offline install is done via Munki postinstall_script.  You must provide a valid .ldf file and specify it's name and path in your recipe override.</string>
 	<key>Identifier</key>
-	<string>com.github.vmiller.munki.VectorworksInstallManager</string>
+	<string>com.github.vmiller.munki.VectorworksFullInstaller</string>
 	<key>Input</key>
 	<dict>
+		<key>LDF_PATH</key>
+		<string>%RECIPE_DIR%</string>
+		<key>LDF_FILE_NAME</key>
+		<string>xx-xxxxxx.ldf</string>
 		<key>GROUP_ID</key>
-		<string>80</string>		
+		<string>80</string>	
 		<key>NAME</key>
 		<string>Vectorworks</string>
 		<key>USER_ID</key>
@@ -36,9 +40,6 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			<string>12.0</string>
 			<key>name</key>
 			<string>%NAME%</string>
-			<key>postinstall_script</key>
-			<string>#!/bin/bash -x
-				"/private/var/tmp/vw/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Resources/cli.sh" install --installdir "/Applications/Vectorworks %MAJOR_VERSION%" --serial %VW_SERIAL_NO% --uid %USER_ID% --gid %GROUP_ID%</string>
 			<key>uninstall_method</key>
 			<string>uninstall_script</string>
 			<key>uninstall_script</key>
@@ -53,20 +54,9 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 	<key>MinimumVersion</key>
 	<string>1.4</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jazzace.download.vectorworksinstallmanager</string>	
+	<string>com.github.vmiller.download.vectorworksfullinstaller</string>	
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>VectorworksUpdateVersioner</string>
-			<key>Arguments</key>
-			<dict>
-				<key>install_manager_path</key>
-				<string>%RECIPE_CACHE_DIR%/Unarchived/Vectorworks %MAJOR_VERSION% Install Manager.app</string>
-				<key>major_version</key>
-				<string>%MAJOR_VERSION%</string>
-			</dict>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -77,17 +67,6 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			<string>Versioner</string>
 		</dict>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/Unarchived</string>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-			</dict>
-			<key>Processor</key>
-			<string>DmgCreator</string>
-		</dict>
-		<dict>
     		<key>Processor</key>
     		<string>com.github.homebysix.VersionSplitter/VersionSplitter</string>
     		<key>Arguments</key>
@@ -95,7 +74,65 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
         		<key>split_on</key>
         		<string>.</string>
     		</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/Vectorworks</string>
+				<key>pkgdirs</key>
+				<dict>
+					<key>vectorworks_install</key>
+					<string>0755</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/Unarchived/Vectorworks %MAJOR_VERSION% Install Manager.app</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install/Vectorworks %MAJOR_VERSION% Install Manager.app</string>
+			</dict>
 		</dict>		
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/Update/%MAJOR_VERSION%/%update_name%.vwim</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install</string>
+			</dict>
+		</dict>	
+		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%LDF_PATH%/%LDF_FILE_NAME%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install</string>
+			</dict>
+		</dict>		
+		<dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>			
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/Vectorworks</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+			</dict>
+		</dict>					
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -118,6 +155,9 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 							<string>CFBundleVersion</string>
 						</dict>
 					</array>
+					<key>postinstall_script</key>
+					<string>#!/bin/bash -x
+						"/private/var/tmp/vw/vectorworks_install/Vectorworks %MAJOR_VERSION% Install Manager.app/Contents/Resources/cli.sh" install --installdir "/Applications/Vectorworks %MAJOR_VERSION%" --ldf /private/var/tmp/vw/vectorworks_install/%LDF_FILE_NAME% --serial %VW_SERIAL_NO% --uid %USER_ID% --gid %GROUP_ID% -i "/private/var/tmp/vw/vectorworks_install/%update_name%.vwim"</string>
 				</dict>
 			</dict>
 			<key>Processor</key>
@@ -130,6 +170,8 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 				<string>%dmg_path%</string>
 				<key>additional_makepkginfo_options</key>
 				<array>
+					<string>--itemname</string>
+					<string>vectorworks_install</string>
 					<string>--destinationpath</string>
 					<string>/private/var/tmp/vw</string>
 					<string>--pkgvers</string>
