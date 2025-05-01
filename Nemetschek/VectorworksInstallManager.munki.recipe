@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the Vectoworks Install Manager app and imports it into Munki with a postinstall script to do the installation.</string></string>
+	<string>Downloads the Vectoworks Install Manager app and imports it into Munki with a postinstall script to do the installation.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.VectorworksInstallManager</string>
 	<key>Input</key>

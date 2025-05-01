@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the Vectoworks Install Manager app and the latest Update file and creates a DMG to import into munki.  Offline command line install is done via Munki postinstall_script.  You must provide a valid .ldf file and specify it's name and path in your recipe override.</string>
+	<string>Downloads the Vectoworks Install Manager app and the latest Update file and creates a DMG to import into munki.  Offline install is done via Munki postinstall_script.  You must provide a valid .ldf file and specify it's name and path in your recipe override.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.VectorworksFullInstaller</string>
 	<key>Input</key>
 	<dict>
 		<key>LDF_PATH</key>
-		<string>%RECIPE_DIR%/xx-xxxxxx.ldf</string>
+		<string>%RECIPE_DIR%</string>
 		<key>LDF_FILE_NAME</key>
 		<string>xx-xxxxxx.ldf</string>
 		<key>GROUP_ID</key>
@@ -117,7 +117,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%LDF_PATH%</string>
+				<string>%LDF_PATH%/%LDF_FILE_NAME%</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install</string>
 			</dict>
