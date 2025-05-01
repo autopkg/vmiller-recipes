@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Downloads the Vectoworks Install Manager app and the latest Update file and creates a DMG to import into munki.  Offline command line install is done via Munki postinstall_script.  You must provide a valid .ldf file and specify it's name and path in your recipe override.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.VectorworksFullInstaller</string>
 	<key>Input</key>
