@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>	
+	<string>Downloads the latest version of ChemDraw and imports it into Munki.  The ChemDraw app is copied into /Application/ChemDraw  This is so that the Activate.ini file can be placed alongside the app for automatic activation.</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.ChemDraw</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>ChemDraw</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>category</key>
+			<string>Chemistry</string>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Since 1985 ChemDraw® solutions have provided powerful capabilities and integrations to help you quickly turn ideas and drawings into publications you can be proud of.</string>
+			<key>developer</key>
+			<string>Revvity Signals Software, Inc.</string>
+			<key>display_name</key>
+			<string>ChemDraw</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/sh
+
+			if [ -d "/Applications/ChemDraw/ChemDraw*" ]
+			then
+				/bin/rm -rf "/Applications/ChemDraw/ChemDraw*"
+			fi</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>2.3</string>
+	<key>ParentRecipe</key>
+	<string>com.github.vmiller.download.ChemDraw</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationpath</string>
+					<string>/Applications/ChemDraw</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
