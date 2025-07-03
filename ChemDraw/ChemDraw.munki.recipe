@@ -31,9 +31,9 @@
 			<key>preinstall_script</key>
 			<string>#!/bin/sh
 
-			if [ -d "/Applications/ChemDraw/ChemDraw*" ]
+			if [ -d /Applications/ChemDraw/ChemDraw* ]
 			then
-				/bin/rm -rf "/Applications/ChemDraw/ChemDraw*"
+				/bin/rm -rf /Applications/ChemDraw/ChemDraw*
 			fi</string>
 			<key>unattended_install</key>
 			<true/>
