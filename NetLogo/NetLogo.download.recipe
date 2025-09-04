@@ -12,33 +12,39 @@
 		<string>NetLogo</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.6.1</string>
+	<string>1.4</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>curl_opts</key>
-				<array>
-					<string>-k</string>
-				</array>
 				<key>re_pattern</key>
-				<string>(option selected value="NetLogo )([0-9-A-Z\.]+)</string>
-				<key>result_output_var_name</key>
-				<string>CURRENT_VERSION</string>
+				<string>NetLogo [0-9]\.[0-9]\.[0-9]</string>
 				<key>url</key>
-				<string>https://ccl.northwestern.edu/netlogo/download.shtml</string>
+				<string>https://ccl.northwestern.edu/netlogo/oldversions.shtml</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
+    		<key>Processor</key>
+    		<string>com.github.homebysix.VersionSplitter/VersionSplitter</string>
+    		<key>Arguments</key>
+    		<dict>
+        		<key>index</key>
+        		<integer>1</integer>
+        		<key>version</key>
+        		<string>%match%</string>
+    		</dict>
+		</dict>
+
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>NetLogo %CURRENT_VERSION%.dmg</string>
+				<string>NetLogo %version%.dmg</string>
 				<key>url</key>
-				<string>https://ccl.northwestern.edu/netlogo/%CURRENT_VERSION%/NetLogo-%CURRENT_VERSION%.dmg</string>
+				<string>https://ccl.northwestern.edu/netlogo/%version%/NetLogo-%version%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -51,7 +57,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/NetLogo %CURRENT_VERSION%/Behaviorsearch %CURRENT_VERSION%.app</string>
+				<string>%pathname%/NetLogo %version%/Behaviorsearch %version%.app</string>
 				<key>requirement</key>
 				<string>identifier "org.nlogo.Behaviorsearch" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = E74ZKF37E6</string>
 			</dict>
@@ -62,7 +68,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/NetLogo %CURRENT_VERSION%/HubNet Client %CURRENT_VERSION%.app</string>
+				<string>%pathname%/NetLogo %version%/HubNet Client %version%.app</string>
 				<key>requirement</key>
 				<string>identifier "org.nlogo.HubNetClient" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = E74ZKF37E6</string>
 			</dict>
@@ -73,7 +79,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/NetLogo %CURRENT_VERSION%/NetLogo %CURRENT_VERSION%.app</string>
+				<string>%pathname%/NetLogo %version%/NetLogo %version%.app</string>
 				<key>requirement</key>
 				<string>identifier "org.nlogo.NetLogo" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = E74ZKF37E6</string>
 			</dict>
@@ -84,7 +90,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/NetLogo %CURRENT_VERSION%/NetLogo 3D %CURRENT_VERSION%.app</string>
+				<string>%pathname%/NetLogo %version%/NetLogo 3D %version%.app</string>
 				<key>requirement</key>
 				<string>identifier "org.nlogo.NetLogo3D" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = E74ZKF37E6</string>
 			</dict>
