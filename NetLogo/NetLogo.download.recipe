@@ -3,31 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of NetLogo</string>
+	<string>Downloads the latest version of NetLogo.  Valid values for the ARCH input are aarch64 for Apple Silicon or x86_64 for Intel</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.download.netlogo</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>NetLogo</string>
+		<key>ARCH</key>
+		<string>aarch64</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.6.1</string>
+	<string>1.4</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>curl_opts</key>
-				<array>
-					<string>-k</string>
-				</array>
 				<key>re_pattern</key>
-				<string>(option selected value="NetLogo )([0-9-A-Z\.]+)</string>
+				<string>([0-9]\.[0-9]\.[0-9](-[a-z,0-9]+)?)</string>
+				<key>url</key>
+				<string>https://www.netlogo.org</string>
 				<key>result_output_var_name</key>
 				<string>CURRENT_VERSION</string>
-				<key>url</key>
-				<string>https://ccl.northwestern.edu/netlogo/download.shtml</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
@@ -38,7 +36,7 @@
 				<key>filename</key>
 				<string>NetLogo %CURRENT_VERSION%.dmg</string>
 				<key>url</key>
-				<string>https://ccl.northwestern.edu/netlogo/%CURRENT_VERSION%/NetLogo-%CURRENT_VERSION%.dmg</string>
+				<string>https://ccl.northwestern.edu/netlogo/%CURRENT_VERSION%/NetLogo-%CURRENT_VERSION%-%ARCH%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
