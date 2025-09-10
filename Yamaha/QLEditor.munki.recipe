@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Yamaha's QL Editor application and imports it into Munki</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.QLEditor</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>QLEditor</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>The QL Editor is a standalone application for computers running Windows or Mac operating systems, for both extended online operation and offline setup and editing. In addition to full Selected Channel and Overview display operation, the QL Editor facilitates scene data management, patch list editing, channel name editing, and much more. And where a rental or installed console must be used, you can simply save your settings to a USB memory and load them into the console when needed. The QL Editor is a great way to manage backups too. It’s even possible to use the QL StageMix for iPad and QL Editor at the same time.</string>
+			<key>developer</key>
+			<string>Yamaha</string>
+			<key>display_name</key>
+			<string>QL Editor</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>		
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.vmiller.download.QLEditor</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%found_filename%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>				
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
