@@ -20,6 +20,15 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>warning_message</key>
+				<string>This recipe is deprecated and will be removed in the near future.</string>
+			</dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+		</dict>		
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>appcast_url</key>
 				<string>https://547264da4b8fdd572550-797074c1f5272f1615cb84698415a77a.ssl.cf1.rackcdn.com/simutext_2021-22_appcast.xml</string>
 			</dict>
