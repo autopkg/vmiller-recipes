@@ -130,8 +130,6 @@
 					</array>
 					<key>id</key>
 					<string>com.gitlab.pkg.gitlab-runner</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
 					<key>pkgname</key>
 					<string>%NAME%-%ARCH%-%version%</string>
 					<key>scripts</key>
