@@ -8,12 +8,12 @@
 	<string>com.github.vmiller.download.VectorworksPkg</string>
 	<key>Input</key>
 	<dict>
+		<key>NAME</key>
+		<string>Vectorworks</string>
 		<key>RELEASE_VERSION</key>
 		<string>2026</string>
 		<key>URL</key>
 		<string>https://release.vectorworks.net/latest/Vectorworks/%RELEASE_VERSION%-NNA-eng-pkg</string>
-		<key>NAME</key>
-		<string>Vectorworks</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0</string>
@@ -33,10 +33,10 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>flat_pkg_path</key>
-				<string>%pathname%</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Unarchived</string>
+				<key>flat_pkg_path</key>
+				<string>%pathname%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
