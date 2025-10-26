@@ -61,6 +61,17 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/Payload/Vectorworks %RELEASE_VERSION%/allPackages/darwin-app/payload/Vectorworks %RELEASE_VERSION%.app</string>
+				<key>requirement</key>
+				<string>identifier "net.nemetschek.vectorworks" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>	
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>input_plist_path</key>
 				<string>%RECIPE_CACHE_DIR%/Payload/Vectorworks %RELEASE_VERSION%/allPackages/darwin-app/payload/Vectorworks %RELEASE_VERSION%.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
