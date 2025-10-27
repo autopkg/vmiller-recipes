@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>ownloads the new (as of 2026 release) Vectorworks installer package.  A properly formatted and named plist file must be in a directory specified in the vw_file input variable.  A dmg will be built with the package and the plist file at the root of the dmg.  The resulting disk image is imported into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.VectorworksPkg</string>
 	<key>Input</key>

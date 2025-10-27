@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Downloads the new (as of 2026 release) Vectorworks installer package.  Extracts the version from the package payload.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.download.VectorworksPkg</string>
 	<key>Input</key>
