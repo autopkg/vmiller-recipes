@@ -1,6 +1,17 @@
 # Recipes for Nemetschek Vectorworks
 
-*Note* these recipes are for Vectorworks 2025 and later
+## Recipes for Vectorworks 2026 and later
+
+### VectorworksPkg.download.recipe
+
+This recipe downloads the new (as of 2026 release) installer package.  As the package does not have good version information, the version is extracted from the package payload
+
+### VectorworksPkg.munki.recipe
+
+This recipe takes the package downloaded by the download recipe and builds a diskimage with the package and the plist file at the root of the disk image.  The admin must specify the path to a prperly named and formatted plist in the recipe input.  See the [documentation](https://forum.vectorworks.net/index.php?/articles.html/articles/how-to/installation/command-line-installation-of-vectorworks-2026-r945/)
+
+
+## Recipes for Vectorworks 2025 and later
 
 
 ## VectorworksFullInstaller.download.recipe
