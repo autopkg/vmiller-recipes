@@ -14,7 +14,7 @@
 	<key>MinimumVersion</key>
 	<string>1.4</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jazzace.download.vectorworksinstallmanager</string>	
+	<string>com.github.vmiller.download.vectorworksinstallmanager</string>	
 	<key>Process</key>
 	<array>
 		<dict>
