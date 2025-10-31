@@ -40,7 +40,7 @@
         </dict>
     </dict>
     <key>ParentRecipe</key>
-    <string>com.github.jazzace.download.sassafrasallsight</string>
+    <string>com.github.vmiller.download.sassafrasallsight</string>
     <key>Process</key>
     <array>
         <dict>

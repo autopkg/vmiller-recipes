@@ -41,7 +41,7 @@
 	<key>MinimumVersion</key>
 	<string>2.7</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jazzace.download.sassafrasallsight</string>
+	<string>com.github.vmiller.download.sassafrasallsight</string>
 	<key>Process</key>
 	<array>
 		<dict>
