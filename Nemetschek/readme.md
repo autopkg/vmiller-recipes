@@ -8,7 +8,9 @@ This recipe downloads the new (as of 2026 release) installer package.  As the pa
 
 ### VectorworksPkg.munki.recipe
 
-This recipe takes the package downloaded by the download recipe and builds a diskimage with the package and the plist file at the root of the disk image.  The admin must specify the path to a prperly named and formatted plist in the recipe input.  See the [documentation](https://forum.vectorworks.net/index.php?/articles.html/articles/how-to/installation/command-line-installation-of-vectorworks-2026-r945/)
+This recipe takes the package downloaded by the download recipe and builds a diskimage with the package and the plist file at the root of the disk image.  The admin must specify the path to a prperly named and formatted plist in the recipe input.  In my experience a folder in the same directory as the override works well.  See the [documentation](https://forum.vectorworks.net/index.php?/articles.html/articles/how-to/installation/command-line-installation-of-vectorworks-2026-r945/) for the plist file.
+
+Since the installer requires the `.ldf` file to be present on the system at isntallation time, it is suggested to have a package that deploys that file and that package be added to a `requires` array.  This can be added to the `pkginfo` input key in the recipe override.
 
 
 ## Recipes for Vectorworks 2025 and later

@@ -30,6 +30,9 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 			<string>12.0</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>requires</key>
+			<array>
+			</array>
 			<key>unattended_install</key>
 			<false/>
 			<key>unattended_uninstall</key>
