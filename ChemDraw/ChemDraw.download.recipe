@@ -40,17 +40,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>pattern</key>
-				<string>%pathname%/ChemDraw 2*</string>
-			</dict>
-			<key>Processor</key>
-			<string>FileFinder</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
 				<key>input_path</key>
-				<string>%pathname%/%found_basename%</string>
+				<string>%pathname%/ChemDraw.app</string>
 				<key>requirement</key>
 				<string>identifier "com.revvity.ChemDraw" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = ZZD6FLC454</string>
 			</dict>
