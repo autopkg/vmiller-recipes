@@ -45,31 +45,31 @@ Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_versi
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
 			<key>Arguments</key>
 			<dict>
 				<key>additional_pkginfo</key>
 				<dict>
 					<key>version</key>
-					<string>%CURRENT_VERSION%</string>
+					<string>%version%</string>
 				</dict>
 			</dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>derive_minimum_os_version</key>
+				<string>%DERIVE_MIN_OS%</string>
 				<key>faux_root</key>
 				<string>%RECIPE_CACHE_DIR%/pkgroot/</string>
 				<key>installs_item_paths</key>
 				<array>
-					<string>/Applications/NetLogo %CURRENT_VERSION%/Behaviorsearch %CURRENT_VERSION%.app</string>
-					<string>/Applications/NetLogo %CURRENT_VERSION%/HubNet Client %CURRENT_VERSION%.app</string>
-					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo %CURRENT_VERSION%.app</string>
-					<string>/Applications/NetLogo %CURRENT_VERSION%/NetLogo 3D %CURRENT_VERSION%.app</string>
+					<string>/Applications/NetLogo %version%/Behaviorsearch %version%.app</string>
+					<string>/Applications/NetLogo %version%/HubNet Client %version%.app</string>
+					<string>/Applications/NetLogo %version%/NetLogo %version%.app</string>
+					<string>/Applications/NetLogo %version%/NetLogo 3D %version%.app</string>
 				</array>
-				<key>derive_minimum_os_version</key>
-				<string>%DERIVE_MIN_OS%</string>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiInstallsItemsCreator</string>
