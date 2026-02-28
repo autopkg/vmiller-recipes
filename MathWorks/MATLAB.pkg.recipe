@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Packages MATLAB's installer app got deployment</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.pkg.MATLAB</string>
+	<key>Input</key>
+	<dict>
+		<key>BUNDLE_ID</key>
+		<string>com.github.vmiller.pkg.matlab</string>
+		<key>DLPATH</key>
+		<string></string>
+		<key>INPUT_FILE_NAME</key>
+		<string></string>
+		<key>INPUT_FILE_PATH</key>
+		<string></string>
+		<key>RELEASE_VERSION</key>
+		<string></string>				
+		<key>NAME</key>
+		<string>MATLAB</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict/>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/scripts</string>
+			</dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+		</dict>		
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict>
+					<key>tmp</key>
+					<string>0755</string>
+					<key>tmp/MATLAB_Install</key>
+					<string>0755</string>
+				</dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/payload</string>
+			</dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/payload/tmp/MATLAB_Install/%RELEASE_VERSION%/install</string>
+				<key>source_path</key>
+				<string>%DLPATH%/%RELEASE_VERSION%/*</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/payload/tmp/MATLAB_Install</string>
+				<key>source_path</key>
+				<string>%INPUT_FILE_PATH%</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>versioninfo_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/payload/tmp/MATLAB_Install/%RELEASE_VERSION%/install/VersionInfo.xml</string>
+			</dict>
+			<key>Processor</key>
+			<string>MATLABVersioner</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>file_content</key>
+				<string>#!/bin/sh
+# Installs MATLAB using the command line installer
+
+# If existing version present, remove it
+appPath='/Applications/MATLAB_%RELEASE_VERSION%.app'
+if [ -d "$appPath" ]
+then
+	/bin/rm -rf "$appPath"
+fi
+
+# Run the installer
+/tmp/MATLAB_install/%RELEASE_VERSION%/install/install -inputFile /tmp/MATLAB_install/%INPUT_FILE_NAME%
+</string>
+				<key>file_mode</key>
+				<string>0755</string>
+				<key>file_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/scripts/postinstall</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>id</key>
+					<string>%BUNDLE_ID%</string>
+					<key>pkgname</key>
+					<string>%NAME%-%current_version%</string>
+					<key>scripts</key>
+					<string>%RECIPE_CACHE_DIR%/%NAME%/scripts</string>
+					<key>version</key>
+					<string>%current_version%</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
