@@ -20,7 +20,7 @@ This recipe builds an installer package to copy the MATLAB installation files an
 
 Example run overriding the keys on the command line:
 
-`autopkg run MATLAB.pkg -vv -k DLPATH="/Users/myuser/Downloads/MathWorks/R2025b" -k INPUT_FILE_NAME="installer_input.txt" -k INPUT_FILE_PATH="matlab_files/" -k RELEASE_VERSION="R2025b"`
+`autopkg run MATLAB.pkg -k DLPATH="/Users/myuser/Downloads/MathWorks/R2025b" -k INPUT_FILE_NAME="installer_input.txt" -k INPUT_FILE_PATH="matlab_files/" -k RELEASE_VERSION="R2025b"`
 
 
 ## MATLAB.munki.recipe
@@ -29,4 +29,4 @@ This recipe builds a disk image containing the provided MATLAB installation file
 
 Example run overriding the inputs at the command line :
 
-`autopkg run MATLAB.munki -vv -k DLPATH="/Users/myuser/Downloads/MathWorks/R2025b" -k INPUT_FILE_NAME="installer_input.txt" -k INPUT_FILE_PATH="matlab_files/" -k RELEASE_VERSION="R2025b"`
+`autopkg run MATLAB.munki -k DLPATH="/Users/myuser/Downloads/MathWorks/R2025b" -k INPUT_FILE_NAME="installer_input.txt" -k INPUT_FILE_PATH="matlab_files/" -k RELEASE_VERSION="R2025b"`
