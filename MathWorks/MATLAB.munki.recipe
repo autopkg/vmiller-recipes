@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Imports MATLAB installation files into Munki.
+
+The installation files should be downloaded manually according to the MathWorks documentaton.
+
+You must override the following keys : 
+DLPATH : The path to the files downloaded from MathWorks
+INPUT_FILE_NAME : The name of the installer input file
+INPUT_FILE_PATH : The path to the directory containing above input file
+RELEASE_VERSION : Marketing release of MATLAB i.e. R2025b
+
+	</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.MATLAB</string>
+	<key>Input</key>
+	<dict>
+		<key>DLPATH</key>
+		<string></string>
+		<key>INPUT_FILE_NAME</key>
+		<string></string>
+		<key>INPUT_FILE_PATH</key>
+		<string></string>
+		<key>MUNKI_REPO_DIR</key>
+		<string>apps/MathWorks</string>
+		<key>NAME</key>
+		<string>MATLAB</string>
+		<key>RELEASE_VERSION</key>
+		<string></string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>MATLAB_%RELEASE_VERSION%.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Engineering</string>
+			<key>description</key>
+			<string>MATLAB® is the high-level language and interactive environment used by millions of engineers and scientists worldwide. It lets you explore and visualize ideas and collaborate across disciplines including signal and image processing, communications, control systems, and computational finance.</string>
+			<key>developer</key>
+			<string>MathWorks</string>
+			<key>display_name</key>
+			<string>MATLAB %RELEASE_VERSION%</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+
+			/tmp/MATLAB_install/%RELEASE_VERSION%/install/install -inputFile /tmp/MATLAB_install/%INPUT_FILE_NAME%</string>
+			<key>preinstall_script</key>
+			<string>#!/bin/sh
+
+			appPath='/Applications/MATLAB_%RELEASE_VERSION%.app'
+			if [ -d "$appPath" ]
+			then
+				/bin/rm -rf "$appPath"
+			fi</string>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/sh
+
+			/bin/rm -rf /Applications/MATLAB_%RELEASE_VERSION%.app</string>
+			<key>version_script</key>
+			<string>#!/usr/local/bin/managed_python3
+
+import os
+import xml.etree.ElementTree as ET
+
+xmlPath = '/Applications/MATLAB_%RELEASE_VERSION%.app/VersionInfo.xml'
+
+installedVersion = ""
+if os.path.isfile(xmlPath):
+	tree = ET.parse(xmlPath)
+	root = tree.getroot()
+	installedVersion = (root[0].text)
+
+
+print(installedVersion)</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkgdirs</key>
+				<dict>
+					<key>MATLAB_Install</key>
+					<string>0755</string>
+				</dict>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+			</dict>
+			<key>Processor</key>
+			<string>PkgRootCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/MATLAB_Install/%RELEASE_VERSION%/install</string>
+				<key>source_path</key>
+				<string>%DLPATH%/*</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>versioninfo_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/MATLAB_Install/%RELEASE_VERSION%/install/VersionInfo.xml</string>
+			</dict>
+			<key>Processor</key>
+			<string>MATLABVersioner</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/MATLAB_Install</string>
+				<key>source_path</key>
+				<string>%INPUT_FILE_PATH%/%INPUT_FILE_NAME%</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+			</dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--itemname</string>
+					<string>MATLAB_Install</string>
+					<string>--destinationpath</string>
+					<string>/tmp</string>
+					<string>--pkgvers</string>
+					<string>%current_version%</string>
+				</array>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_DIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
