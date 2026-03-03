@@ -11,7 +11,7 @@ You must override the following keys :
 DLPATH : The path to the files downloaded from MathWorks
 INPUT_FILE_NAME : The name of the installer input file
 INPUT_FILE_PATH : The path to the directory containing the installer input file
-RELEASE_VERSION : Marketing release of MATLAB 
+RELEASE_VERSION : Marketing release of MATLAB i.e. R2025b
 	</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.pkg.MATLAB</string>
