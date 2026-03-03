@@ -3,7 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Recipe description</string>
+	<string>Imports MATLAB installation files into Munki.
+
+The installation files should be downloaded manually according to the MathWorks documentaton.
+
+You must override the following keys : 
+DLPATH : The path to the files downloaded from MathWorks
+INPUT_FILE_NAME : The name of the installer input file
+INPUT_FILE_PATH : The path to the directory containing above input file
+RELEASE_VERSION : Marketing release of MATLAB i.e. R2025b
+
+	</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.MATLAB</string>
 	<key>Input</key>
@@ -100,7 +110,7 @@ print(installedVersion)</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/MATLAB_Install/%RELEASE_VERSION%/install</string>
 				<key>source_path</key>
-				<string>%DLPATH%/%RELEASE_VERSION%/*</string>
+				<string>%DLPATH%/*</string>
 			</dict>
 			<key>Processor</key>
 			<string>Copier</string>
@@ -120,7 +130,7 @@ print(installedVersion)</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/MATLAB_Install</string>
 				<key>source_path</key>
-				<string>%INPUT_FILE_PATH%</string>
+				<string>%INPUT_FILE_PATH%/%INPUT_FILE_NAME%</string>
 			</dict>
 			<key>Processor</key>
 			<string>Copier</string>
