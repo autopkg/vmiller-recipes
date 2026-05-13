@@ -53,7 +53,7 @@
 				<key>archive_format</key>
 				<string>tar</string>
 				<key>archive_path</key>
-				<string>%RECIPE_CACHE_DIR%/Unarchived/Payload</string>
+				<string>%RECIPE_CACHE_DIR%/Unarchived/LargeSegmentedPayload</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Payload</string>
 				<key>purge_destination</key>
