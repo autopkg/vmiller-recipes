@@ -54,10 +54,10 @@ fi
 
 /usr/sbin/lpadmin -p %PRINTER_NAME% \
         -D "%PRINTER_DESCRIPTION%" -E -v "%PRINTER_URI%" \
-        -L %PRINTER_LOCATION% -P /private/tmp/%PRINTER_NAME%.ppd \
+        -L "%PRINTER_LOCATION%" -m everywhere \
         -o printer-is-shared=false \
-        -o auth-info-required=username,password
-
+        -o auth-info-required=username,password \
+        -o duplex=on
 
 # Create a receipt for the printer
 mkdir -p /private/etc/cups/deployment/receipts
