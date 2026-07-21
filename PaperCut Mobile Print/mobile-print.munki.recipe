@@ -41,7 +41,7 @@
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>postinstall_script</key>
-			<string>#!/bin/sh
+			<string>#!/bin/sh -x
 
 # If the queue already exists (returns 0), we should remove it.
 /usr/bin/lpstat -p %PRINTER_NAME%
@@ -59,16 +59,21 @@ fi
         -o auth-info-required=username,password \
         -o duplex=on
 
-# Create a receipt for the printer
-mkdir -p /private/etc/cups/deployment/receipts
-/usr/libexec/PlistBuddy -c "Add :version string" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist
-/usr/libexec/PlistBuddy -c "Set :version %PRINTER_VERSION%" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist
+# Test to see if we were successful
+if [ $? -eq 0 ]; then
+	# Create a receipt for the printer
+	mkdir -p /private/etc/cups/deployment/receipts
+	/usr/libexec/PlistBuddy -c "Add :version string" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist
+	/usr/libexec/PlistBuddy -c "Set :version %PRINTER_VERSION%" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist
 
-# Permission the directories properly.
-chown -R root:_lp /private/etc/cups/deployment
-chmod -R 700 /private/etc/cups/deployment
-
-exit 0</string>
+	# Permission the directories properly.
+	chown -R root:_lp /private/etc/cups/deployment
+	chmod -R 700 /private/etc/cups/deployment
+else
+	# If not successful
+	exit 1
+fi
+</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>unattended_uninstall</key>
