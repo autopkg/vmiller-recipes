@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Recipe description</string>
+	<key>Identifier</key>
+	<string>com.github.vmiller.munki.mobile-print</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string></string>
+		<key>NAME</key>
+		<string></string>
+		<key>PRINTER_DESCRIPTION</key>
+		<string></string>
+		<key>PRINTER_LOCATION</key>
+		<string></string>
+		<key>PRINTER_NAME</key>
+		<string></string>
+		<key>PRINTER_URI</key>
+		<string></string>
+		<key>PRINTER_VERSION</key>
+		<string></string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>Printers</string>
+			<key>description</key>
+			<string>Installs a Printer</string>
+			<key>developer</key>
+			<string>Lafayette</string>
+			<key>display_name</key>
+			<string>%PRINTER_DESCRIPTION%</string>
+			<key>minimum_munki_version</key>
+			<string>7.0</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+
+# If the queue already exists (returns 0), we should remove it.
+/usr/bin/lpstat -p %PRINTER_NAME%
+if [ $? -eq 0 ]; then
+    /usr/sbin/lpadmin -x %PRINTER_NAME%
+fi
+
+# Now we can install the printer.
+/System/Library/Printers/Libraries/ipp2ppd "%PRINTER_URI%" "" > /private/tmp/%PRINTER_NAME%.ppd
+
+/usr/sbin/lpadmin -p %PRINTER_NAME% \
+        -D "%PRINTER_DESCRIPTION%" -E -v "%PRINTER_URI%" \
+        -L %PRINTER_LOCATION% -P /private/tmp/%PRINTER_NAME%.ppd \
+        -o printer-is-shared=false \
+        -o auth-info-required=username,password
+
+
+# Create a receipt for the printer
+mkdir -p /private/etc/cups/deployment/receipts
+/usr/libexec/PlistBuddy -c "Add :version string" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist
+/usr/libexec/PlistBuddy -c "Set :version %PRINTER_VERSION%" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist
+
+# Permission the directories properly.
+chown -R root:_lp /private/etc/cups/deployment
+chmod -R 700 /private/etc/cups/deployment
+
+exit 0</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/bash
+/usr/sbin/lpadmin -x %PRINTER_NAME%
+rm -f /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist</string>
+			<key>uninstallable</key>
+			<true/>
+			<key>version</key>
+			<string>%PRINTER_VERSION%</string>
+			<key>version_script</key>
+			<string>#!/bin/sh
+
+installedVersion=""
+if [ -e /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist ]; then
+        installedVersion=`/usr/libexec/PlistBuddy -c "Print :version" /private/etc/cups/deployment/receipts/%PRINTER_NAME%.plist`
+fi
+
+echo $installedVersion</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>com.github.vmiller.MunkiNopkgImporter/MunkiNopkgImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
