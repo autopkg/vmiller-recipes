@@ -50,8 +50,6 @@ if [ $? -eq 0 ]; then
 fi
 
 # Now we can install the printer.
-/System/Library/Printers/Libraries/ipp2ppd "%PRINTER_URI%" "" > /private/tmp/%PRINTER_NAME%.ppd
-
 /usr/sbin/lpadmin -p %PRINTER_NAME% \
         -D "%PRINTER_DESCRIPTION%" -E -v "%PRINTER_URI%" \
         -L "%PRINTER_LOCATION%" -m everywhere \
