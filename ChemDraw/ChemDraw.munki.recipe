@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>	
+	<key>Description</key>
 	<string>Downloads the latest version of ChemDraw and imports it into Munki.  The ChemDraw app is copied into /Application/ChemDraw  This is so that the Activate.ini file can be placed alongside the app for automatic activation.</string>
 	<key>Identifier</key>
 	<string>com.github.vmiller.munki.ChemDraw</string>

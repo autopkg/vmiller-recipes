@@ -12,7 +12,7 @@ __all__ = ["VectorworksUpdateDownloader"]
 
 
 class VectorworksUpdateDownloader(Processor):
-    """This processor uses the Vectorworks Installation Manager app 
+    """This processor uses the Vectorworks Installation Manager app
     to download the Update file used for offline installs"""
 
     description = __doc__
@@ -38,7 +38,7 @@ class VectorworksUpdateDownloader(Processor):
     def main(self):
         try:
             downloader_cli = self.env["install_manager_path"] + "/Contents/Resources/cli.sh"
-    
+
             update_target_name = "Update" + self.env["update_version"]
             self.output("Found update target %s" % update_target_name)
 
@@ -61,7 +61,7 @@ class VectorworksUpdateDownloader(Processor):
             else:
                 self.output("Update already exists as : %s" % download_update_path)
             self.env["downloaded_update_path"] = download_update_path
-            self.env["update_name"] = update_target_name 
+            self.env["update_name"] = update_target_name
 
         except Exception as err:
             # handle unexpected errors here

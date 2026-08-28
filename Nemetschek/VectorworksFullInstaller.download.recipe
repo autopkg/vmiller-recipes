@@ -14,7 +14,7 @@
 	<key>MinimumVersion</key>
 	<string>1.4</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vmiller.download.vectorworksinstallmanager</string>	
+	<string>com.github.vmiller.download.vectorworksinstallmanager</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -38,7 +38,7 @@
 				<key>major_version</key>
 				<string>%MAJOR_VERSION%</string>
 			</dict>
-		</dict>		
+		</dict>
 	</array>
 </dict>
 </plist>

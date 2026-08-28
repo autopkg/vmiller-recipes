@@ -13,7 +13,7 @@
 		<key>LDF_FILE_NAME</key>
 		<string>xx-xxxxxx.ldf</string>
 		<key>GROUP_ID</key>
-		<string>80</string>	
+		<string>80</string>
 		<key>NAME</key>
 		<string>Vectorworks</string>
 		<key>USER_ID</key>
@@ -54,7 +54,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 	<key>MinimumVersion</key>
 	<string>1.4</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vmiller.download.vectorworksfullinstaller</string>	
+	<string>com.github.vmiller.download.vectorworksfullinstaller</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -99,7 +99,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install/Vectorworks %MAJOR_VERSION% Install Manager.app</string>
 			</dict>
-		</dict>		
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>Copier</string>
@@ -110,7 +110,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install</string>
 			</dict>
-		</dict>	
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>Copier</string>
@@ -121,10 +121,10 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Vectorworks/vectorworks_install</string>
 			</dict>
-		</dict>		
+		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>DmgCreator</string>			
+			<string>DmgCreator</string>
 			<key>Arguments</key>
 			<dict>
 				<key>dmg_root</key>
@@ -132,7 +132,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
 			</dict>
-		</dict>					
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>

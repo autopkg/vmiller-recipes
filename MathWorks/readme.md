@@ -2,7 +2,7 @@
 
 For both of these recipes, the MATLAB installation files must be downloaded from MathWorks first before running wither recipe.  Additionally a properly formatted isntaller input text file must be provided.
 
-Versioning is provided by parsing the `VersionInfo.xml` 
+Versioning is provided by parsing the `VersionInfo.xml`
 
 ## Inputs
 
