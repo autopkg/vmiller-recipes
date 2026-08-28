@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>GROUP_ID</key>
-		<string>80</string>		
+		<string>80</string>
 		<key>NAME</key>
 		<string>Vectorworks</string>
 		<key>USER_ID</key>
@@ -53,7 +53,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
 	<key>MinimumVersion</key>
 	<string>1.4</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vmiller.download.vectorworksinstallmanager</string>	
+	<string>com.github.vmiller.download.vectorworksinstallmanager</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -95,7 +95,7 @@ Sketch, model, present. The ultimate 3D software that handles projects from star
         		<key>split_on</key>
         		<string>.</string>
     		</dict>
-		</dict>		
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>

@@ -12,7 +12,7 @@ __all__ = ["VectorworksUpdateVersioner"]
 
 
 class MATLABVersioner(Processor):
-    """This processor determines the version of MATLAB from the 
+    """This processor determines the version of MATLAB from the
     VersionInfo.xml file"""
 
     description = __doc__
@@ -29,7 +29,7 @@ class MATLABVersioner(Processor):
     def main(self):
         try:
             xmlPath = self.env["versioninfo_path"]
-            
+
             self.output("Looking at : %s" % xmlPath)
 
             tree = ET.parse(xmlPath)
@@ -38,7 +38,7 @@ class MATLABVersioner(Processor):
 
             self.output("Found version %s" % found_version)
 
-            self.env["current_version"] = found_version 
+            self.env["current_version"] = found_version
 
         except Exception as err:
             # handle unexpected errors here

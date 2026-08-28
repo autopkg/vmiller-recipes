@@ -12,7 +12,7 @@ __all__ = ["VectorworksUpdateVersioner"]
 
 
 class VectorworksUpdateVersioner(Processor):
-    """This processor uses the Vectorworks Installation Manager app 
+    """This processor uses the Vectorworks Installation Manager app
     to find the version of the latest update"""
 
     description = __doc__
@@ -53,7 +53,7 @@ class VectorworksUpdateVersioner(Processor):
 
             self.output("Found update version %s" % high_version)
 
-            self.env["update_version"] = high_version 
+            self.env["update_version"] = high_version
 
         except Exception as err:
             # handle unexpected errors here

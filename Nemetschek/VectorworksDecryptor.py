@@ -8,7 +8,7 @@ __all__ = ["VectorworksUpdateVersioner"]
 
 
 class VectorworksDecryptor(Processor):
-    """This processor decrypts the a .bin file from a Vectorworks 
+    """This processor decrypts the a .bin file from a Vectorworks
     installer pacakge payload"""
 
     description = __doc__

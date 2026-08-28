@@ -1,6 +1,6 @@
 #!/usr/local/autopkg/python
 #
-# Copyright 2026 Vaughn Miller 
+# Copyright 2026 Vaughn Miller
 # modified from MunkiImporter processor by Greg Neagle 2013
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -242,7 +242,7 @@ class MunkiNopkgImporter(Processor):
                 self.output(
                     f"Item {self.env['pkginfo']['name']} version {self.env['pkginfo']['version']} already exists in the "
                     f"munki repo "
-                )            
+                )
                 return
 
 

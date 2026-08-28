@@ -47,7 +47,7 @@ if [[ ! -d /Library/Application\ Support/Mestrelab\ Research\ S.L./MestReNova/ca
 	#/usr/bin/defaults write com.mestrelab.MestReNova General.SoftwareUpdateCheck.Days 0
 	#/usr/bin/defaults write com.mestrelab.MestReNova General.SoftwareUpdateCheck.Enabled 0
 
-	
+
 	exit 0</string>
 			<key>unattended_install</key>
 			<true/>
