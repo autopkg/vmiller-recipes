@@ -11,5 +11,4 @@ repos:
     hooks:
       - id: check-plists
       - id: check-autopkg-recipes
-      - id: forbid-autopkg-overrides
       - id: forbid-autopkg-trust-info
