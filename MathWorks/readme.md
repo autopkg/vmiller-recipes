@@ -1,6 +1,6 @@
 # MathWorks MATLAB recipes
 
-For both of these recipes, the MATLAB installation files must be downloaded from MathWorks first before running either recipe.  Additionally a properly formatted installer input text file must be provided.
+For both of these recipes, the MATLAB installation files must be [downloaded](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine#download_only) from MathWorks first before running either recipe.  Additionally a properly formatted installer input text file must be provided.
 
 Versioning is provided by parsing the `VersionInfo.xml` file
 
