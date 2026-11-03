@@ -1,8 +1,8 @@
 # MathWorks MATLAB recipes
 
-For both of these recipes, the MATLAB installation files must be downloaded from MathWorks first before running wither recipe.  Additionally a properly formatted isntaller input text file must be provided.
+For both of these recipes, the MATLAB installation files must be [downloaded](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine#download_only) from MathWorks first before running either recipe.  Additionally a properly formatted installer input text file must be provided.
 
-Versioning is provided by parsing the `VersionInfo.xml`
+Versioning is provided by parsing the `VersionInfo.xml` file
 
 ## Inputs
 
@@ -11,7 +11,7 @@ To run either of these recipes you must override the following keys :
 * DLPATH : The path to the files downloaded from MathWorks
 * INPUT_FILE_NAME : The name of the installer input file
 * INPUT_FILE_PATH : The path to the directory containing the installer input file
-* RELEASE_VERSION : Marketing release of MATLAB i.e. R2025b
+* RELEASE_VERSION : Marketing release of MATLAB i.e. R2026b
 
 
 ## MATLAB.pkg.recipe
